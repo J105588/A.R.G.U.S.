@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ダッシュボード - Network Monitor</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>ダッシュボード</h1>
+        <nav>
+            <a href="/dashboard" class="active">ダッシュボード</a>
+            <a href="/settings">設定</a>
+            <a href="/certificate">証明書</a>
+        </nav>
+        <div class="content">
+            <h2>リアルタイム統計 (過去24時間)</h2>
+            <div id="stats-grid">
+                <div class="stat-card">
+                    <h3>総リクエスト数</h3>
+                    <p id="total-requests">N/A</p>
+                </div>
+                <div class="stat-card">
+                    <h3>ブロック数</h3>
+                    <p id="blocked-requests">N/A</p>
+                </div>
+                <div class="stat-card">
+                    <h3>総通信量 (MB)</h3>
+                    <p id="total-traffic">N/A</p>
+                </div>
+                 <div class="stat-card">
+                    <h3>フィルタリング</h3>
+                    <p id="filtering-status">N/A</p>
+                </div>
+            </div>
+
+            <h2>最近ブロックされたアクセス</h2>
+            <div id="blocked-log">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>時刻</th>
+                            <th>クライアントIP</th>
+                            <th>URL</th>
+                            <th>理由</th>
+                        </tr>
+                    </thead>
+                    <tbody id="blocked-log-body">
+                        <!-- JSで動的に追加 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

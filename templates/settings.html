@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>設定 - Network Monitor</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>設定</h1>
+        <nav>
+            <a href="/dashboard">ダッシュボード</a>
+            <a href="/settings" class="active">設定</a>
+            <a href="/certificate">証明書</a>
+        </nav>
+        <div class="content">
+            <div class="setting-section">
+                <h2>フィルタリング設定</h2>
+                <label class="switch">
+                    <input type="checkbox" id="filtering-enabled-toggle">
+                    <span class="slider round"></span>
+                </label>
+                <span id="filtering-status-text">有効</span>
+            </div>
+
+            <div class="setting-section">
+                <h2>ブロック対象ドメイン</h2>
+                <p>1行に1ドメイン入力してください。</p>
+                <textarea id="blocked-domains" rows="10"></textarea>
+                <button onclick="saveRules('domains')">ドメインを保存</button>
+            </div>
+
+            <div class="setting-section">
+                <h2>ブロック対象キーワード</h2>
+                <p>URLに含まれるキーワードを1行に1つ入力してください。</p>
+                <textarea id="blocked-keywords" rows="10"></textarea>
+                <button onclick="saveRules('keywords')">キーワードを保存</button>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

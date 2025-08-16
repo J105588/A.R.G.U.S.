@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block title %}証明書のインストール{% endblock %}
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">認証局(CA)証明書のインストール</h2>
+
+    <div class="card mb-4">
+        <div class="card-header">
+            はじめに
+        </div>
+        <div class="card-body">
+            <p>HTTPS通信を監視・分析するためには、このアプリケーション専用の認証局（CA）証明書をお使いのコンピュータとブラウザに「信頼できる」ものとしてインストールする必要があります。</p>
+            <p>以下の手順に従って、証明書をインストールしてください。</p>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header">
+            インストール手順
+        </div>
+        <div class="card-body">
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item">
+                    <strong>証明書のダウンロード:</strong><br>
+                    お使いのシステムに合った形式の証明書を以下からダウンロードします。通常、Windowsの場合は <code>.cer</code> または <code>.p12</code> を使用します。
+                    <div class="mt-3">
+                        {% if certs %}
+                            {% for name, file in certs.items() %}
+                                <a href="{{ url_for('download_cert', filename=file) }}" class="btn btn-primary me-2">
+                                    <i class="bi bi-download"></i> {{ file }}
+                                </a>
+                            {% endfor %}
+                        {% else %}
+                            <div class="alert alert-warning" role="alert">
+                                証明書ファイルが見つかりません。アプリケーションを再起動して、証明書が自動生成されるのを確認してください。
+                            </div>
+                        {% endif %}
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <strong>証明書のインストール:</strong><br>
+                    ダウンロードしたファイルをダブルクリックして開きます。「証明書のインストール」ボタンをクリックしてください。
+                </li>
+                <li class="list-group-item">
+                    <strong>ストアの場所の選択:</strong><br>
+                    「現在のユーザー」を選択して「次へ」進みます。
+                </li>
+                <li class="list-group-item">
+                    <strong>証明書ストアの指定:</strong><br>
+                    「証明書をすべて次のストアに配置する」を選択し、「参照」ボタンをクリックします。
+                </li>
+                <li class="list-group-item">
+                    <strong>「信頼されたルート証明機関」を選択:</strong><br>
+                    表示されたリストから「信頼されたルート証明機関」を選択し、「OK」をクリックして「次へ」進みます。
+                </li>
+                <li class="list-group-item">
+                    <strong>完了と警告の承認:</strong><br>
+                    「完了」をクリックします。「セキュリティ警告」が表示されたら「はい」をクリックしてインストールを承認します。
+                </li>
+                <li class="list-group-item">
+                    <strong>ブラウザの再起動:</strong><br>
+                    証明書を正しく認識させるため、お使いのWebブラウザを完全に終了し、再起動してください。
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+{% endblock %}
