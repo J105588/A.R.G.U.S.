@@ -1,4 +1,4 @@
-# Network Monitor -Argus-
+# A.R.G.U.S. - Active Routing & Guarding Utility Service
 
 Network Monitorは、ローカルネットワーク上のHTTP/HTTPS通信を監視、分析、フィルタリングするためのPython製ウェブアプリケーションです。
 
@@ -185,6 +185,7 @@ network-monitor/
 
 - **他の端末から管理画面にアクセスできない**:
     - PCの**Windows Defender ファイアウォール**が原因である可能性が高いです。「ファイアウォールとネットワーク保護」設定で、アクティブなネットワークのファイアウォールを一時的にオフにして接続を試みてください。接続が確認できたら、セキュリティのためファイアウォールを再度有効にし、「ファイアウォールによるアプリケーションの許可」で`python.exe`の受信規則を許可することをお勧めします。
+
 
 
 
