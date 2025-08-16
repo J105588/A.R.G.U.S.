@@ -1,0 +1,3 @@
+# Enter one domain to block per line   
+example-social.com   
+example-video.com   

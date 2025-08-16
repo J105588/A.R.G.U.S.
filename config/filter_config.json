@@ -1,0 +1,7 @@
+{   
+  "filtering_enabled": true,   
+  "web_port": 8081,   
+  "proxy_port": 8080,   
+  "host": "0.0.0.0",   
+  "log_level": "INFO"   
+}   

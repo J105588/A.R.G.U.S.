@@ -1,0 +1,3 @@
+# Enter one keyword to block per line   
+bad-word   
+distraction   
